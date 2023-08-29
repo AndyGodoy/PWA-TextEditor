@@ -4,30 +4,22 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "nodemon server.js",
-    "start": "nodemon server.js",
-    "server": "",
-    "build": "babel src -d dist",
-    "install": "",
-    "client": "",
-    "presets": ["@babel/preset-env"]
+    "start:dev": "concurrently \"cd client && npm run build\" \"cd server && npm run server\" ",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server node server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client": "cd client && npm start"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "semver": "^7.5.4",
-    "simple-update-notifier": "^2.0.0"
+    "if-env": "^1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.11",
-    "@babel/preset-env": "^7.22.10",
     "concurrently": "^5.2.0",
-    "eslint": "^8.48.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^2.0.4"
   }
 }
-
