@@ -4,22 +4,30 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
+    "start:dev": "nodemon server.js",
+    "start": "nodemon server.js",
     "server": "",
-    "build": "",
+    "build": "babel src -d dist",
     "install": "",
-    "client": ""
+    "client": "",
+    "presets": ["@babel/preset-env"]
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "semver": "^7.5.4",
+    "simple-update-notifier": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.11",
+    "@babel/preset-env": "^7.22.10",
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "eslint": "^8.48.0",
+    "nodemon": "^3.0.1"
   }
 }
+
